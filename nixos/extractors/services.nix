@@ -521,7 +521,7 @@ in {
       step-ca = mkIf config.services.step-ca.enable {
         name = "step-ca";
         icon = "services.step-ca";
-        details.listen.text = "${config.services.step-ca.address}:${toString config.services.step-ca.port}";
+        details.listen = mkIf config.services.step-ca.openFirewall {text = "${config.services.step-ca.address}:${toString config.services.step-ca.port}";};
       };
 
       stirling-pdf = let
